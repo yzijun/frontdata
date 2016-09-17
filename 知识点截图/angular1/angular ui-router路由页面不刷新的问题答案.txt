@@ -1,0 +1,39 @@
+答案1
+.run(['$rootScope', '$window', '$location', '$log','$templateCache', function ($rootScope, $window, $location, $log,$templateCache) {  
+
+  var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);  
+
+  function stateChangeSuccess($rootScope) {  
+   $templateCache.removeAll();    
+ } 
+
+}]); 
+
+
+
+答案2
+controller里注入$injector，然后$injector.get('$templateCache').removeAll(); 搞定！
+
+kanConsole.controller('areaController', function($scope, $compile, $stateParams,$injector) {
+$injector.get('$templateCache').removeAll();
+
+
+答案3
+ui-sref-opts="{reload: true}"   可以让强制刷新
+ <li class="icon_message icon_state" ui-sref-active="icon_message_active"><a ui-sref="index" ui-sref-opts="{reload: true}" >线索选题</a></li>
+
+
+答案4 （自己推荐使用）
+添加cache: false可以啊 第二次单击就会刷新啊
+
+.state("tabs.me", {
+        url: "/me",
+        views: {
+          "tab-me": {
+            templateUrl: "me.html",
+            controller: "myCtrl"
+          }
+        },
+        // 每次单击调用控制器,不缓存
+        cache: false
+      }); 
