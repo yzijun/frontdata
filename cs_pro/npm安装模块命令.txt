@@ -1,0 +1,2 @@
+npm install -save xxxxx@3.0.6 是安装并更新package.json文件的dependencies中
+npm install -save-dev xxxxx 更新到devDependencies中
