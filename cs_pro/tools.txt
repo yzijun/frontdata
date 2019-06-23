@@ -1,5 +1,0 @@
-dotNetFx45_Full_x86_x64
-Git-2.9.2-64-bit
-node-v6.3.1-x64
-TortoiseGit-2.2.0.0-64bit
-VSCodeSetup-stable
